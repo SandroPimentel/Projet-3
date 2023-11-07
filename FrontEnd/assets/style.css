@@ -1,0 +1,592 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background: #FFFEF8;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+/** end reset css**/
+body {
+	font-family: 'Work Sans' ;
+	font-size: 14px;
+}
+
+.container {
+    max-width: 1140px;
+    margin: auto;
+}
+
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+}
+section {
+	margin: 50px 0
+}
+
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+;
+}
+
+h2{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154
+}
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+
+}
+nav li {
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+
+a:hover {
+	color: #B1663C;
+}
+#introduction {
+	display: flex;
+	align-items: center;
+}
+#introduction figure {
+	flex: 1
+}
+#introduction img {
+	display: block;
+	margin: auto;
+	width: 80%;
+}
+
+#introduction article {
+	flex: 1
+}
+#introduction h2 {
+	margin-bottom: 1em;
+}
+
+#introduction p {
+	margin-bottom: 0.5em;
+}
+#portfolio h2 {
+	text-align: center;
+}
+
+/* Code pour les filtres */
+.filtres {
+	margin-top: 51px;
+	display: flex;
+	gap: 15px;
+	margin-bottom: 51px;
+	justify-content: center;
+}
+
+.basic-style {
+	min-width: 100px;
+	height: 37px;
+	border-radius: 60px;
+	border: 1px solid #1D6154;
+	background: #FFFEF8;
+	color: #1D6154;
+	text-align: center;
+	font-family: 'Syne';
+	font-size: 16px;
+	font-weight: 700;
+	transition: 0.3s;
+}
+
+.filtres button:hover {
+	background-color: #1D6154;
+	color: white;
+	cursor: pointer;
+}
+
+.filtre-click {
+	min-width: 100px;
+	height: 37px;
+	border-radius: 60px;
+	border: 1px solid #1D6154;
+	background-color: #1D6154;
+	color: #FFFEF8;
+	text-align: center;
+	font-family: 'Syne';
+	font-size: 16px;
+	font-weight: 700;
+	transition: 0.3s;
+}
+
+
+#Appartements {
+	padding: 0px 14px;
+}
+
+#Hotels\ \&\ restaurants {
+    padding: 0px 10px;
+}
+
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+.gallery img {
+	width: 100%;
+
+}
+
+figcaption {
+	margin-top: 8px;
+}
+
+#contact {
+	width: 50%;
+margin: auto;
+}
+#contact > * {
+	text-align: center;
+
+}
+#contact h2{
+	margin-bottom: 20px;
+}
+#contact form {
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+
+#contact input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact label {
+	margin: 2em 0 1em 0;
+}
+#contact textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+
+/* Code pour le footer */
+footer {
+	display: flex;
+	justify-content: flex-end;
+    width: 100%; 
+	background: white;
+    color: #000;
+    font-family: 'Work Sans';
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+.footer-content {
+    max-width: 1140px;
+	padding-top: 24px;
+	padding-bottom: 20px;
+	padding-right: 107px;
+}
+
+/* Code pour l'état "login" et "not-login" */
+
+/* not-login */
+#not-login {	
+	display: flex;
+	justify-content: center;
+	margin-top: 139px;
+}
+
+#not-login img {
+	display: none;
+}
+
+#not-login button {
+	display: none;
+}
+
+/* Après s'être login */
+
+#hidden-top-bar {
+	display: none;
+}
+
+.edition-top-bar {
+	background-color: #000;
+	height: 59px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #FFF;
+	font-family: 'Work Sans';
+	font-size: 16px;
+	font-weight: 400;
+	gap: 12px;
+	z-index: 10;  
+    position: relative; 
+}
+
+#hidden-filtres {
+	display: none;
+}
+
+
+#modifier {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 92px;
+	margin-top: 139px;
+}
+
+#modifier h2 {
+	margin-right: 31px;
+	margin-left: 110px;
+}
+
+#modifier button {
+	background: none;
+	border: none;
+}
+#modifier button:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+#modifier img {
+	margin-right: 10px;
+}
+
+
+#hidden-overlay {
+	display: none;
+}
+#hidden-modal {
+	display: none;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+/* Code pour les deux modals */
+.modal {
+	box-sizing: border-box;
+	position: fixed; 
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); 
+	width: 630px; 
+	height: 688px; 
+	border-radius: 10px; 
+	background: white; 
+	overflow: hidden;
+	z-index: 1000; 
+}
+
+.modal-button {
+	padding: 26px;
+	padding-bottom: 0px;
+	padding-top: 30;
+}
+
+.modal-button button {
+	background: none;
+	border: none;
+}
+
+.modal-button button:hover{
+    cursor: pointer;
+}
+
+.modal-header {
+    color: #000;
+    font-size: 26px;
+    font-weight: 400;
+	display: flex;
+	justify-content: center;
+    margin-top: 10px;
+}
+
+.modal-footer button {
+    width: 237px;
+    height: 36px;
+    margin-top: 38px;
+    border-radius: 60px;
+    color: #FFF;
+    font-family: 'Syne';
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+}
+
+.modal-footer {
+    position: absolute; 
+    bottom: 0; 
+    left: 0;
+    width: 100%; 
+    display: flex;
+    box-sizing: border-box; 
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 45px;
+}
+
+.modal-footer #grey-border {
+	height: 1px;
+	width: 420px;
+	background-color: #A7A7A7;
+}
+
+.modal-footer button:hover {
+    cursor: pointer;
+}
+
+/* Code modal 1 */
+#modal1  #modal1-close {
+	margin-left: 546px;
+}
+
+#modal-body-1 {
+    margin: 46px 105px; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px 6.23px; 
+    overflow-y: auto; 
+}
+
+#modal-body-1 img{
+    width: 78.123px;
+    height: 104.08px;
+}
+
+#modal-body-1 div {
+    position: relative;
+}
+#modal-body-1 button {
+    background-color: #000;
+    border-radius: 2px;
+    height: 17px;
+    width: 17px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    z-index: 10;  
+    position: absolute;
+    top: 6px; 
+    right: 6px;  
+}
+
+.modal-footer #modal1-button {
+	background-color: #1D6154;
+}
+
+/* Code pour modal 2 */
+
+#modal2 .modal-button {
+	display: flex;
+	justify-content: space-between;
+}
+#ajout-photo {
+	width: 420px;
+	height: 169px;
+	border-radius: 3px;
+	background: #E8F1F6;
+	display: flex;
+	flex-direction: column;
+	margin-left: 105px;
+	margin-top: 36px;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+#ajout-photo img {
+	height: 76px;
+	width: 76px;
+}
+
+.uploadForm {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+}
+  
+.uploadForm input[type="file"] {
+	position: absolute;
+	font-size: 50px;
+	right: 0;
+	top: 0;
+	opacity: 0;
+}
+  
+.uploadForm button {
+	border: none;
+	width: 173px;
+	height: 36px;
+	border-radius: 50px;
+	background: #CBD6DC;
+	color: #306685;
+	font-size: 14px;
+	font-weight: 500;
+	margin-top: 6px;
+	padding: 10px 33px 10px 33px;
+}
+
+.uploadForm input {
+	cursor: pointer;
+}
+
+  
+#ajout-photo p {
+	color: #444;
+	font-size: 10px;
+	font-weight: 400;
+	margin-top: 7px;
+}
+
+#title-project {
+	margin-left: 105px;
+	margin-top: 30px;
+}
+
+#title-project p{
+	margin-bottom: 10px;
+	color: #3D3D3D;
+	font-size: 14px;;
+	font-weight: 500;
+}
+
+#title-project input {
+	width: 410px;
+	height: 51px;
+	background: #FFF;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+	border: none;
+	padding-left: 10px;
+}
+
+#dropdown {
+	margin-left: 105px;
+	margin-top: 21px;
+	color: #3D3D3D;
+	font-size: 14px;
+	font-weight: 500;
+}
+  
+#dropdown p {
+	margin-bottom: 10px;
+	color: #3D3D3D;
+	font-size: 14px;
+	font-weight: 500;
+}
+  
+#dropdown select {
+	width: 420px;
+	height: 51px;
+	background: #FFF;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+	border: none;
+	padding-left: 10px;
+	appearance: none;
+	padding-right: 46px; 
+}
+  
+.dropdown-arrow {
+	position: absolute;
+	right: 10px;
+	top: 68.2%;
+	right: 20%;
+	pointer-events: none;
+}
+
+#modal2-button {
+	background-color: #A7A7A7;
+}

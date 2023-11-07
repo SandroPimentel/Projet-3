@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./assets/style.css">
+	<script src="filtres.js" defer></script>
+	<script src="modale.js" defer></script>
+</head>
+<!-- Code pour les Modals -->
+<div class="overlay" id="hidden-overlay"></div>
+<!-- Modal 1 -->
+<div class="modal" id="modal1" style="display: none;">
+	<div class="modal-button">
+		<button id="modal1-close">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17.6546 8.05106C18.1235 7.58214 18.1235 6.82061 17.6546 6.35169C17.1856 5.88277 16.4241 5.88277 15.9552 6.35169L12.005 10.3056L8.05106 6.35544C7.58214 5.88652 6.82061 5.88652 6.35169 6.35544C5.88277 6.82436 5.88277 7.58589 6.35169 8.05481L10.3056 12.005L6.35544 15.9589C5.88652 16.4279 5.88652 17.1894 6.35544 17.6583C6.82436 18.1272 7.58589 18.1272 8.05481 17.6583L12.005 13.7044L15.9589 17.6546C16.4279 18.1235 17.1894 18.1235 17.6583 17.6546C18.1272 17.1856 18.1272 16.4241 17.6583 15.9552L13.7044 12.005L17.6546 8.05106Z" fill="black"/>
+            </svg>
+		</button>
+	</div>
+	<div class="modal-header">
+		<p>Galerie photo</p>
+	</div>
+	<div id="modal-body-1">
+	</div>
+	<div class="modal-footer">
+		<div id="grey-border"></div>
+		<button id="modal1-button">Ajouter une photo</button>
+	</div>
+</div>
+<!-- Modal 2 -->
+<div class="modal" id="modal2" style="display: none;">
+	<div class="modal-button">
+		<button id="modal-back">
+			<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                <path d="M0.439478 8.94458C-0.146493 9.53055 -0.146493 10.4822 0.439478 11.0681L7.9399 18.5686C8.52587 19.1545 9.47748 19.1545 10.0635 18.5686C10.6494 17.9826 10.6494 17.031 10.0635 16.445L5.11786 11.5041H19.4999C20.3297 11.5041 21 10.8338 21 10.004C21 9.17428 20.3297 8.50393 19.4999 8.50393H5.12255L10.0588 3.56303C10.6447 2.97706 10.6447 2.02545 10.0588 1.43948C9.47279 0.853507 8.52118 0.853507 7.93521 1.43948L0.43479 8.9399L0.439478 8.94458Z" fill="black"/>
+            </svg>
+		</button>
+		<button id="modal2-close">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17.6546 8.05106C18.1235 7.58214 18.1235 6.82061 17.6546 6.35169C17.1856 5.88277 16.4241 5.88277 15.9552 6.35169L12.005 10.3056L8.05106 6.35544C7.58214 5.88652 6.82061 5.88652 6.35169 6.35544C5.88277 6.82436 5.88277 7.58589 6.35169 8.05481L10.3056 12.005L6.35544 15.9589C5.88652 16.4279 5.88652 17.1894 6.35544 17.6583C6.82436 18.1272 7.58589 18.1272 8.05481 17.6583L12.005 13.7044L15.9589 17.6546C16.4279 18.1235 17.1894 18.1235 17.6583 17.6546C18.1272 17.1856 18.1272 16.4241 17.6583 15.9552L13.7044 12.005L17.6546 8.05106Z" fill="black"/>
+            </svg>
+		</button>
+	</div>
+	<div class="modal-header">
+		<p>Ajout photo</p>
+	</div>
+	<div id="modal-body-2">
+		<div id="ajout-photo">
+			<img id="icon-image-hidden" src="assets/icons/picture-svgrepo-com 1.svg">
+            <form class="uploadForm" id="form-hidden">
+                <input type="file" id="imageInput" name="image" accept="image/*">
+                <button type="submit">+ Ajouter photo</button>
+            </form>
+            <div id="image-container"></div> <!-- Container for the uploaded image -->
+            <p id="hidden-format-text">jpg, png : 4mo max</p>
+		</div>
+		<div id="title-project">
+            <p>Titre</p>
+            <input id="title-project-input">
+        </div>
+		<div id="dropdown">
+			<p>Catégorie</p>
+            <select name="categorie" id="select-categorie">
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+            </select>
+            <img class="dropdown-arrow" src="assets/icons/chevron-down-solid 1.svg" />
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div id="grey-border"></div>
+		<button type="button" id="modal2-button">Valider</button>
+	</div>
+</div>
+
+<body>
+	<!-- Code pour l'interface édition  -->
+<div class="edition-top-bar" id="hidden-top-bar">
+	<img src="assets/icons/edition.svg" alt="icon d'édition">
+	<p>Mode édition</p>
+</div>
+<!-- Code pour le header -->
+<header class="container">
+	<div class="nav">
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">projets</a></li>
+				<li><a href="#contact">contact</a></li>
+				<li><a id='login' href="login.html">login</a></li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main class="container">
+	<section id="introduction">
+		<figure>
+			<img src="./assets/images/sophie-bluel.png" alt="">
+		</figure>
+		<article>
+			<h2>Designer d'espace</h2>
+			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+		</article>
+	</section>
+	<section id="portfolio">
+		<div class="Projects-button">
+			<div id="not-login">
+				<h2>Mes Projets</h2>
+				<!-- Code pour l'interface édition  -->
+				<img src="assets/icons/edition-black.svg" alt="icon d'édition">
+				<button id='modifierBtn'>modifier</button>  
+			</div>
+			<!-- Filtres -->
+			<div class="filtres">
+				<button id="Tous" class="filtre-click">Tous</button>
+				<button id="Objets"class="basic-style">Objets</button>
+				<button id="Appartements" class="basic-style">Appartements</button>
+				<button id="Hotels & restaurants" class="basic-style">Hôtels & restaurants</button>
+			</div>
+		</div>
+		<div class="gallery">
+		</div>
+	</section>
+	<section id="contact">
+		<h2>Contact</h2>
+		<p>Vous avez un projet ? Discutons-en !</p>
+		<form action="#" method="post">
+			<label for="name">Nom</label>
+			<input type="text" name="name" id="name">
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email">
+			<label for="message">Message</label>
+			<textarea name="message" id="message" cols="30" rows="10"></textarea>
+			<input type="submit" value="Envoyer">
+		</form>
+	</section>
+</main>
+<footer>
+	<div class="footer-content">
+		<p>Mentions Légales</p>
+	</div>
+</footer>
+</body>
+</html>
