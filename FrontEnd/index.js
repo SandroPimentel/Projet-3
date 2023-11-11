@@ -35,11 +35,10 @@ function openModal1() {
 
 
 async function loadWorksIntoModal() {
-    const works = await fetchWorks()
     const modalBody = document.querySelector('#modal-body-1')
     modalBody.innerHTML = ''
 
-    works.forEach(function(work) {
+    cachedWorks.forEach(function(work) {
         const divElement = document.createElement('div')
         const imageElement = document.createElement('img')
         
@@ -76,8 +75,10 @@ async function loadWorksIntoModal() {
             })
             .then(response => {
                 if(response.ok) {
-                    console.log('Supprimé avec succès')
-                    divElement.remove()
+                    console.log(divElement)
+                    cachedWorks = cachedWorks.filter(element => element.id !== work.id)
+                    gallery(cachedWorks)
+                    modalBody.removeChild(divElement)
                 } else {
                     console.error('Erreur lors de la suppression')
                 }
@@ -190,13 +191,50 @@ async function loadCategoriesIntoSelect() {
         const categories = await response.json()
         const select = document.getElementById('select-categorie')
         select.length = 1
+        if (categories) {
+            createCategories(categories)
+        }
         categories.forEach((category) => {
-            const option = new Option(category.name, category.id)
-            select.add(option)
+            if (category.id > 0) {
+                const option = new Option(category.name, category.id)
+                select.add(option)
+            }
         })
     } catch (error) {
         console.error('Erreur lors du chargement des catégories:', error)
     }
+}
+
+// Code pour les fitres 
+function createCategories(data) {
+    data.unshift({"id":0, "name": "Tous"})
+    const filtres = document.querySelector(".filtres")
+    filtres.innerHTML = ""
+    data.forEach (element => {
+        const btn = document.createElement("button")
+        btn.classList.add("basic-style")
+        btn.classList.remove("filtre-click")
+        btn.innerText = element.name
+        btn.setAttribute("id", element.id)
+        btn.addEventListener("click", () => {
+            filterWorks(element.id)
+        })
+        filtres.appendChild(btn)
+    })
+}
+
+function filterWorks(id) {
+    const activeClass = document.querySelectorAll(".basic-style")
+    activeClass.forEach( active => active.classList.remove("filtre-click"))
+    const btn = document.getElementById(id)
+    let filterWorks = []
+    btn.classList.add("filtre-click")
+    if (id === 0) {
+        filterWorks = cachedWorks
+    } else {
+        filterWorks = cachedWorks.filter(item => item.categoryId === id) 
+    }
+    gallery(filterWorks)
 }
 
 // EventListener pour les boutons 
@@ -238,7 +276,9 @@ async function submitForm() {
         }
 
         const data = await response.json()
-        console.log(data)
+        cachedWorks.push(data)
+        gallery(cachedWorks)
+        loadWorksIntoModal()
     } catch (error) {
         console.error('Erreur lors de la soumission du formulaire:', error)
     }
