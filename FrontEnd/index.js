@@ -279,6 +279,7 @@ async function submitForm() {
         cachedWorks.push(data)
         gallery(cachedWorks)
         loadWorksIntoModal()
+        closeModal()
     } catch (error) {
         console.error('Erreur lors de la soumission du formulaire:', error)
     }
