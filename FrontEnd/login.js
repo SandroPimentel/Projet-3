@@ -26,4 +26,7 @@ document.querySelector(".login-section button").addEventListener("click", functi
     } else {
         alert("Veuillez mettre un e-mail et un mot de passe")
     }
-});
+})
+
+// email: sophie.bluel@test.tld
+// password: S0phie
