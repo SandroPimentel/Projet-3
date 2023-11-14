@@ -1,24 +1,4 @@
-// Code pour récupérer les données de "works"
-let cachedWorks = null;
-
-async function fetchWorks() {
-    if (!cachedWorks) {
-        try {
-            const response = await fetch("http://localhost:5678/api/works")
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`)
-            }
-            cachedWorks = await response.json()
-            gallery(cachedWorks)
-        } catch (error) {
-            console.error("Error fetching works:", error)
-            cachedWorks = []
-        }
-    }
-    return cachedWorks
-}
-
-// On ajoute les travaux à la galerie 
+// Code pour récupérer les données de "works" et ajouter les travaux à la galerie
 function gallery(data) {
     const gallery = document.querySelector('.gallery')
     gallery.innerHTML = ''
@@ -38,6 +18,25 @@ function gallery(data) {
             gallery.appendChild(figureElement)
         })
         
+}
+
+let cachedWorks = null;
+
+async function fetchWorks() {
+    if (!cachedWorks) {
+        try {
+            const response = await fetch("http://localhost:5678/api/works")
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`)
+            }
+            cachedWorks = await response.json()
+            gallery(cachedWorks)
+        } catch (error) {
+            console.error("Error fetching works:", error)
+            cachedWorks = []
+        }
+    }
+    return cachedWorks
 }
 
 fetchWorks()
