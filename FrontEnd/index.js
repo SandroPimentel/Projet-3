@@ -126,18 +126,8 @@ function resetModal2() {
     document.getElementById('modal2-button').style.backgroundColor = "#A7A7A7"
 }
 
-function previewImage(input) {
-    const preview = document.getElementById('preview')
-    if (input.files && input.files[0]) {
-        const reader = new FileReader()
-        reader.onload = function (e) {
-            preview.style.backgroundImage = 'url(' + e.target.result + ')'
-            preview.innerHTML = ''
-        };         reader.readAsDataURL(input.files[0])
-    }
-}
 
-// Code pour la previeuw de l'image et le changement de couleur du bouton valider
+// Code pour le changement de couleur du bouton valider
 
 function checkInputs() {
 
@@ -176,12 +166,41 @@ document.getElementById('imageInput').addEventListener('change', function(event)
     }
 })
 
-
-
 document.getElementById('title-project-input').addEventListener('input', checkInputs)
 document.getElementById('select-categorie').addEventListener('change', checkInputs)
 
-// Code pour ajouter les catégories à sélectionner
+// Code pour ajouter les catégories et les filtres 
+function filterWorks(id) {
+    const activeClass = document.querySelectorAll(".basic-style")
+    activeClass.forEach( active => active.classList.remove("filtre-click"))
+    const btn = document.getElementById(id)
+    let filterWorks = []
+    btn.classList.add("filtre-click")
+    if (id === 0) {
+        filterWorks = cachedWorks
+    } else {
+        filterWorks = cachedWorks.filter(item => item.categoryId === id) 
+    }
+    gallery(filterWorks)
+}
+
+function createCategories(data) {
+    data.unshift({"id":0, "name": "Tous"})
+    const filtres = document.querySelector(".filtres")
+    filtres.innerHTML = ""
+    data.forEach (element => {
+        const btn = document.createElement("button")
+        btn.classList.add("basic-style")
+        btn.classList.remove("filtre-click")
+        btn.innerText = element.name
+        btn.setAttribute("id", element.id)
+        btn.addEventListener("click", () => {
+            filterWorks(element.id)
+        })
+        filtres.appendChild(btn)
+    })
+}
+
 async function loadCategoriesIntoSelect() {
     try {
         const response = await fetch('http://localhost:5678/api/categories')
@@ -203,38 +222,6 @@ async function loadCategoriesIntoSelect() {
     } catch (error) {
         console.error('Erreur lors du chargement des catégories:', error)
     }
-}
-
-// Code pour les fitres 
-function createCategories(data) {
-    data.unshift({"id":0, "name": "Tous"})
-    const filtres = document.querySelector(".filtres")
-    filtres.innerHTML = ""
-    data.forEach (element => {
-        const btn = document.createElement("button")
-        btn.classList.add("basic-style")
-        btn.classList.remove("filtre-click")
-        btn.innerText = element.name
-        btn.setAttribute("id", element.id)
-        btn.addEventListener("click", () => {
-            filterWorks(element.id)
-        })
-        filtres.appendChild(btn)
-    })
-}
-
-function filterWorks(id) {
-    const activeClass = document.querySelectorAll(".basic-style")
-    activeClass.forEach( active => active.classList.remove("filtre-click"))
-    const btn = document.getElementById(id)
-    let filterWorks = []
-    btn.classList.add("filtre-click")
-    if (id === 0) {
-        filterWorks = cachedWorks
-    } else {
-        filterWorks = cachedWorks.filter(item => item.categoryId === id) 
-    }
-    gallery(filterWorks)
 }
 
 // EventListener pour les boutons 
